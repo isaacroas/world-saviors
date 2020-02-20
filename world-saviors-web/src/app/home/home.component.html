@@ -1,0 +1,15 @@
+World Saviors API sent: {{ (savior$ | async)?.text }}
+<br>
+Enter savior:
+<input type="text" [(ngModel)]="newSavior.text">
+<br>
+<button (click)="putSavior()">Send Savior</button>
+<div *ngIf="response$ | async as res">
+  <br>
+  Thanks for sending a savior!
+  World Saviors API received {{ res.text }}
+</div>
+<br>
+<br>
+<br>
+Last event received: {{ (sse$ | async)?.text }}
