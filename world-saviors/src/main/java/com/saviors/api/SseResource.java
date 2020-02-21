@@ -13,33 +13,39 @@ import javax.ws.rs.sse.Sse;
 import javax.ws.rs.sse.SseBroadcaster;
 import javax.ws.rs.sse.SseEventSink;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 @ApplicationScoped
 @Path("/api/sse")
 public class SseResource {
 
-	private Sse sse;
-	private SseBroadcaster sseBroadcaster;
-	private OutboundSseEvent.Builder eventBuilder;
-	private Long broadcastingMillisPeriod = 1000L;
+  private static final Logger logger = LogManager.getLogger(SseResource.class);
 
-	@Context
-	public void setSse(Sse sse) {
-		this.sse = sse;
-		this.eventBuilder = sse.newEventBuilder();
-		this.sseBroadcaster = sse.newBroadcaster();
-		this.startBroadcasting();
-	}
+  private Sse sse;
+  private SseBroadcaster sseBroadcaster;
+  private OutboundSseEvent.Builder eventBuilder;
+  private Long broadcastingMillisPeriod = 1000L;
 
-	@GET
-	@Produces(MediaType.SERVER_SENT_EVENTS)
-	public void live(@Context SseEventSink sseEventSink) {
-		this.sseBroadcaster.register(sseEventSink);
-		sseEventSink.send(sse.newEvent("Let's start saving the world!!!"));
-	}
+  @Context
+  public void setSse(Sse sse) {
+    this.sse = sse;
+    this.eventBuilder = sse.newEventBuilder();
+    this.sseBroadcaster = sse.newBroadcaster();
+    this.startBroadcasting();
+  }
 
-	private void startBroadcasting() {
-		Timer time = new Timer();
-		time.schedule(new BroadcastTask(this.eventBuilder, this.sseBroadcaster), 0L, this.broadcastingMillisPeriod);
-	}
+  @GET
+  @Produces(MediaType.SERVER_SENT_EVENTS)
+  public void live(@Context SseEventSink sseEventSink) {
+    this.sseBroadcaster.register(sseEventSink);
+    sseEventSink.send(sse.newEvent("Let's start saving the world!!!"));
+  }
+
+  private void startBroadcasting() {
+    Timer time = new Timer();
+    time.schedule(new BroadcastTask(this.eventBuilder, this.sseBroadcaster), 0L,
+        this.broadcastingMillisPeriod);
+  }
 
 }
