@@ -6,21 +6,30 @@ import { Savior } from '../domain/savior.domain';
   providedIn: 'root'
 })
 export class SaviorsService {
-
   private endpoint = 'http://localhost:8080/world-saviors/api/saviors';
-  private readonly httpOptions = {
+  private readonly httpJsonOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
+  private readonly httpTextOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'text/plain'
+    })
+  };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getSavior() {
     return this.http.get<Savior>(this.endpoint);
   }
 
   putSavior(newSavior: Savior) {
-    return this.http.put<Savior>(this.endpoint, newSavior, this.httpOptions);
+    return this.http.put<Savior>(
+      this.endpoint,
+      newSavior,
+      this.httpJsonOptions
+    );
   }
+
 }
