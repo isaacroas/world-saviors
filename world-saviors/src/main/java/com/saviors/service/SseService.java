@@ -36,6 +36,9 @@ public class SseService {
 
   @Inject
   private LeaderSupporterService leaderSupporterService;
+  
+  @Inject
+  private DeedsService deedsService;
 
   public void register(Sse sse, SseEventSink sseEventSink) {
     if (this.sse == null) {
@@ -87,10 +90,11 @@ public class SseService {
     sseMessage.setInfluencerFollowers(influencerFollowers);
     sseMessage.setLeaderSupporters(leaderSupporters);
     sseMessage.setUfoSightings(ufoSightings);
+    sseMessage.setDeeds(deedsService.getDeeds());
     return sseMessage;
   }
 
-  private void sendSseMessage() {
+  public void sendSseMessage() {
     SseMessage sseMessage = generateSseMessage();
     OutboundSseEvent outboundSseEvent =
         eventBuilder.data(sseMessage).mediaType(MediaType.APPLICATION_JSON_TYPE).build();

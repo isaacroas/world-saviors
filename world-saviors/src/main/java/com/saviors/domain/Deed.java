@@ -1,12 +1,12 @@
 package com.saviors.domain;
 
-public class Savior {
+public class Deed {
 
   private String text;
 
-  public Savior() {}
+  public Deed() {}
 
-  public Savior(String text) {
+  public Deed(String text) {
     this.text = text;
   }
 
