@@ -9,9 +9,9 @@ import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   {
-    path: "home",
+    path: 'home',
     component: HomeComponent,
-    data: { title: "Home" }
+    data: { title: 'Home' }
   },
   {
     path: '',

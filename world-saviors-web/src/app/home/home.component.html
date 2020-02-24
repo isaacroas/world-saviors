@@ -1,15 +1,23 @@
-World Saviors API sent: {{ (savior$ | async)?.text }}
 <br>
-Enter savior:
-<input type="text" [(ngModel)]="newSavior.text">
+Followers: {{ (sseMessage$ | async)?.influencerFollowers }}
 <br>
-<button (click)="putSavior()">Send Savior</button>
+UFO Sightings: {{ (sseMessage$ | async)?.ufoSightings }}
+<br>
+Supporters: {{ (sseMessage$ | async)?.leaderSupporters }}
+<br>
+<br>
+<br>
+Enter Deed:
+<input type="text" [(ngModel)]="newDeed.text">
+<button (click)="putDeed()">Send Deed</button>
 <div *ngIf="response$ | async as res">
-  <br>
-  Thanks for sending a savior!
-  World Saviors API received {{ res.text }}
+  <p>Thanks for doing good deeds!</p>
+  <p>World Saviors API sent back {{ res.text }}</p>
 </div>
 <br>
 <br>
-<br>
-Last event received: {{ (sse$ | async)?.text }}
+<table>
+  <tr *ngFor="let deed of (sseMessage$ | async)?.deeds">
+    <td>{{ deed.text }}</td>
+  </tr>
+</table>

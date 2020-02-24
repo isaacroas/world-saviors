@@ -1,9 +1,17 @@
+import { Deed } from './deed.domain';
+
 export class SseMessage {
 
-  text: string;
+  influencerFollowers: number;
+  ufoSightings: number;
+  leaderSupporters: number;
+  deeds: Array<Deed>;
 
-  constructor(text?: string) {
-    this.text = text;
+  constructor(influencerFollowers: number, ufoSightings: number, leaderSupporters: number, deeds: Array<Deed>) {
+    this.influencerFollowers = influencerFollowers;
+    this.ufoSightings = ufoSightings;
+    this.leaderSupporters = leaderSupporters;
+    this.deeds = deeds;
   }
 
 }
