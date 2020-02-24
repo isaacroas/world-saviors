@@ -17,6 +17,7 @@ import org.apache.logging.log4j.Logger;
 import com.saviors.config.Configuration;
 import com.saviors.domain.SseMessage;
 import com.saviors.service.MockInstagramService;
+import com.saviors.service.UfoSightingService;
 
 
 @Path("/api/sse")
@@ -32,6 +33,9 @@ public class SseResource {
 
   @Inject
   private MockInstagramService instagramService;
+  
+  @Inject
+  private UfoSightingService ufoSightingService;
 
   @Context
   public void setSse(Sse sse) {
@@ -63,7 +67,7 @@ public class SseResource {
         OutboundSseEvent outboundSseEvent = eventBuilder.data(sseMessage)
             .mediaType(MediaType.APPLICATION_JSON_TYPE)
             .build();
-        logger.info("Broadcasting SSE: {}", sseMessage.toString());
+        logger.info("Broadcasting SSE: {}", sseMessage);
         sseBroadcaster.broadcast(outboundSseEvent);
       }
 
@@ -75,13 +79,10 @@ public class SseResource {
 
   private SseMessage generateSseMessage() {
     SseMessage sseMessage = new SseMessage();
-    Long followersCount = null;
-    try {
-      followersCount = instagramService.getFollowersCount();
-    } catch (Exception e) {
-      logger.error(e);
-    }
-    sseMessage.setFollowersCount(followersCount);
+    Long influencerFollowers = instagramService.getNextCount();
+    Long ufoSightings = ufoSightingService.getNextCount();
+    sseMessage.setInfluencerFollowers(influencerFollowers);
+    sseMessage.setUfoSightings(ufoSightings);
     return sseMessage;
   }
 

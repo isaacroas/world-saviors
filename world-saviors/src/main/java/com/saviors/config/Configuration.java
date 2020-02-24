@@ -15,12 +15,19 @@ public class Configuration {
   public static final String SSE_SCHEDULER_DELAY = "sseSchedulerDelay";
   public static final String SSE_SCHEDULER_PERIOD = "sseSchedulerPeriod";
   public static final String INFLUENCER_URL = "influencerUrl";
+  
   public static final String INFLUENCER_INTIAL_FOLLOWERS = "influencerInitialFollowers";
   public static final String INFLUENCER_INTIAL_AVERAGE_INCREMENT = "influencerInitialAverageIncrement";
   public static final String INFLUENCER_INTIAL_INCREMENT_RANGE = "influencerInitialIncrementRange";
   public static final String INFLUENCER_AVERAGE_INCREMENT = "influencerAverageIncrement";
   public static final String INFLUENCER_INCREMENT_RANGE = "influencerIncrementRange";
 
+  public static final String UFO_INTIAL_COUNT = "ufoInitialCount";
+  public static final String UFO_INTIAL_AVERAGE_INCREMENT = "ufoInitialAverageIncrement";
+  public static final String UFO_INTIAL_INCREMENT_RANGE = "ufoInitialIncrementRange";
+  public static final String UFO_AVERAGE_INCREMENT = "ufoAverageIncrement";
+  public static final String UFO_INCREMENT_RANGE = "ufoIncrementRange";
+  
   private Properties props;
 
   private static final Logger logger = LogManager.getLogger(Configuration.class);
