@@ -4,6 +4,7 @@ public class SseMessage {
 
   private Long influencerFollowers;
   private Long ufoSightings;
+  private Long leaderSupporters;
   
   public Long getInfluencerFollowers() {
     return influencerFollowers;
@@ -21,4 +22,12 @@ public class SseMessage {
     this.ufoSightings = ufoSightings;
   }
   
+  public Long getLeaderSupporters() {
+    return leaderSupporters;
+  }
+  
+  public void setLeaderSupporters(Long leaderSupporters) {
+    this.leaderSupporters = leaderSupporters;
+  }
+
 }

@@ -16,6 +16,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.saviors.config.Configuration;
 import com.saviors.domain.SseMessage;
+import com.saviors.service.LeaderSupporterService;
 import com.saviors.service.MockInstagramService;
 import com.saviors.service.UfoSightingService;
 
@@ -36,6 +37,9 @@ public class SseResource {
   
   @Inject
   private UfoSightingService ufoSightingService;
+  
+  @Inject
+  private LeaderSupporterService leaderSupporterService;
 
   @Context
   public void setSse(Sse sse) {
@@ -81,8 +85,10 @@ public class SseResource {
     SseMessage sseMessage = new SseMessage();
     Long influencerFollowers = instagramService.getNextCount();
     Long ufoSightings = ufoSightingService.getNextCount();
+    Long leaderSupporters = leaderSupporterService.getNextCount();
     sseMessage.setInfluencerFollowers(influencerFollowers);
     sseMessage.setUfoSightings(ufoSightings);
+    sseMessage.setLeaderSupporters(leaderSupporters);
     return sseMessage;
   }
 
