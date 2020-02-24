@@ -1,9 +1,9 @@
 export class SseMessage {
 
-  text: string;
+  followersCount: number;
 
-  constructor(text?: string) {
-    this.text = text;
+  constructor(followersCount?: number) {
+    this.followersCount = followersCount;
   }
 
 }

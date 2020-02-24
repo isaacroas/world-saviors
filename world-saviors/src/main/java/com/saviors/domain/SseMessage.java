@@ -1,19 +1,16 @@
 package com.saviors.domain;
 
 public class SseMessage {
-	
-	private String text;
-	
-	public SseMessage(String text) {
-		this.text = text;
-	}
 
-	public String getText() {
-		return text;
-	}
+  private Long followersCount;
 
-	public void setText(String text) {
-		this.text = text;
-	}
-	
+  public Long getFollowersCount() {
+    return followersCount;
+  }
+
+  public void setFollowersCount(Long followersCount) {
+    this.followersCount = followersCount;
+  }
+
+
 }

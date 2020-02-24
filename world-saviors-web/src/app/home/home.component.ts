@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { Savior } from '../domain/savior.domain';
 
 @Component({
-  selector: 'ws-home',
+  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
