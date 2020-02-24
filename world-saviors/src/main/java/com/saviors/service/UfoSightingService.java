@@ -11,36 +11,36 @@ import com.saviors.config.Configuration;
 
 @ApplicationScoped
 @Named
-public class MockInstagramService extends AbstractDataGeneratorService {
+public class UfoSightingService extends AbstractDataGeneratorService {
 
-  private static final Logger logger = LogManager.getLogger(MockInstagramService.class);
+  private static final Logger logger = LogManager.getLogger(UfoSightingService.class);
   
   @Inject
   private Configuration configuration;
 
   @Override
   protected Long getInitialCount() {
-    return this.configuration.getLong(Configuration.INFLUENCER_INTIAL_FOLLOWERS);
+    return this.configuration.getLong(Configuration.UFO_INTIAL_COUNT);
   }
 
   @Override
   protected Integer getInitialAverageIncrement() {
-    return this.configuration.getInt(Configuration.INFLUENCER_INTIAL_AVERAGE_INCREMENT);
+    return this.configuration.getInt(Configuration.UFO_INTIAL_AVERAGE_INCREMENT);
   }
 
   @Override
   protected Integer getInitialIncrementRange() {
-    return this.configuration.getInt(Configuration.INFLUENCER_INTIAL_INCREMENT_RANGE);
+    return this.configuration.getInt(Configuration.UFO_INTIAL_INCREMENT_RANGE);
   }
 
   @Override
   protected Integer getAverageIncrement() {
-    return this.configuration.getInt(Configuration.INFLUENCER_AVERAGE_INCREMENT);
+    return this.configuration.getInt(Configuration.UFO_AVERAGE_INCREMENT);
   }
 
   @Override
   protected Integer getIncrementRange() {
-    return this.configuration.getInt(Configuration.INFLUENCER_INCREMENT_RANGE);
+    return this.configuration.getInt(Configuration.UFO_INCREMENT_RANGE);
   }
 
 }

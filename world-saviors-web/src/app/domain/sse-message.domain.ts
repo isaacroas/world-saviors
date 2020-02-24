@@ -1,9 +1,11 @@
 export class SseMessage {
 
-  followersCount: number;
+  influencerFollowers: number;
+  ufoSightings: number;
 
-  constructor(followersCount?: number) {
-    this.followersCount = followersCount;
+  constructor(influencerFollowers: number, ufoSightings: number) {
+    this.influencerFollowers = influencerFollowers;
+    this.ufoSightings = ufoSightings;
   }
 
 }
