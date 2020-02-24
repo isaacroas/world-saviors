@@ -25,9 +25,8 @@ public class Utils {
     logger.debug("Generate random number between {} and {}", min, max);
     Integer bound = (max - min);
     Integer randomInt = new Random().nextInt(bound);
-    logger.debug("First step: Random number between 0 and {}: {}", bound, randomInt);
     Integer result = randomInt + min;
-    logger.debug("Second step: ({}) + ({}) = {}", randomInt, min, result);
+    logger.debug("The number generated is {}", result);
     return result;
   }
 
