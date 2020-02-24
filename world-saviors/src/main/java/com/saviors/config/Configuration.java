@@ -28,6 +28,12 @@ public class Configuration {
   public static final String UFO_AVERAGE_INCREMENT = "ufoAverageIncrement";
   public static final String UFO_INCREMENT_RANGE = "ufoIncrementRange";
   
+  public static final String LEADER_INTIAL_COUNT = "leaderInitialCount";
+  public static final String LEADER_INTIAL_AVERAGE_INCREMENT = "leaderInitialAverageIncrement";
+  public static final String LEADER_INTIAL_INCREMENT_RANGE = "leaderInitialIncrementRange";
+  public static final String LEADER_AVERAGE_INCREMENT = "leaderAverageIncrement";
+  public static final String LEADER_INCREMENT_RANGE = "leaderIncrementRange";
+  
   private Properties props;
 
   private static final Logger logger = LogManager.getLogger(Configuration.class);
