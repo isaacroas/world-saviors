@@ -1,5 +1,23 @@
-Followers: {{ (sse$ | async)?.influencerFollowers }}
 <br>
-UFO Sightings: {{ (sse$ | async)?.ufoSightings }}
+Followers: {{ (sseMessage$ | async)?.influencerFollowers }}
 <br>
-Supporters: {{ (sse$ | async)?.leaderSupporters }}
+UFO Sightings: {{ (sseMessage$ | async)?.ufoSightings }}
+<br>
+Supporters: {{ (sseMessage$ | async)?.leaderSupporters }}
+<br>
+<br>
+<br>
+Enter Deed:
+<input type="text" [(ngModel)]="newDeed.text">
+<button (click)="putDeed()">Send Deed</button>
+<div *ngIf="response$ | async as res">
+  <p>Thanks for doing good deeds!</p>
+  <p>World Saviors API sent back {{ res.text }}</p>
+</div>
+<br>
+<br>
+<table>
+  <tr *ngFor="let deed of (sseMessage$ | async)?.deeds">
+    <td>{{ deed.text }}</td>
+  </tr>
+</table>
