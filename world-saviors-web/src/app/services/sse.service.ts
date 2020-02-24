@@ -1,6 +1,6 @@
+import { SseMessage } from './../domain/sse-message.domain';
 import { Injectable, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SseMessage } from '../domain/sse-message.domain';
 
 @Injectable({
   providedIn: 'root'

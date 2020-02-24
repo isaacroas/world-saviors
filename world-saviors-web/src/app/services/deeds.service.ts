@@ -1,3 +1,4 @@
+import { DeedType } from './../domain/deed-type.domain';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Deed as Deed } from '../domain/deed.domain';
@@ -25,6 +26,10 @@ export class DeedsService {
       newDeed,
       this.httpJsonOptions
     );
+  }
+
+  getDeedTypes() {
+    return this.http.get<Array<DeedType>>(this.endpoint + '/types');
   }
 
 }
