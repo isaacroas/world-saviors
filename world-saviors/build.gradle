@@ -19,7 +19,7 @@ dependencies {
 	testCompile group: 'junit', name: 'junit', version: '4.13'
 	testCompile group: 'org.mockito', name: 'mockito-core', version: '3.3.0'
 	testCompile group: 'com.github.tomakehurst', name: 'wiremock', version: '2.26.0', ext: 'pom'
-	
+	testCompile group: 'io.rest-assured', name: 'rest-assured', version: '4.2.0'
 }
 
 task cucumber() {
@@ -28,7 +28,7 @@ task cucumber() {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'hellocucumber', 'src/test/resources']
+            args = ['--plugin', 'pretty', '--glue', 'world-saviors', 'src/test/resources']
         }
     }
 }
