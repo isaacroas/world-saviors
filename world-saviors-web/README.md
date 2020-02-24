@@ -1,5 +1,7 @@
 # WorldSaviorsWeb
 
+This is an Angular 6 application that consumes the API.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
 
 ## Development server
