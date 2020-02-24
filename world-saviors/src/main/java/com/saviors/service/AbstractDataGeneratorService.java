@@ -35,7 +35,7 @@ public abstract class AbstractDataGeneratorService {
     Integer initialAverageIncrement = getInitialAverageIncrement();
     Integer initialIncrementRange  = getInitialIncrementRange();
     Long result = intialCount + Utils.getRandomIncrementInRange(initialAverageIncrement, initialIncrementRange);
-    logger.info("Initial count is {}", this.currentCount);
+    logger.info("Initial count is {}", result);
     return result;
   }
 
