@@ -34,6 +34,8 @@ public class Configuration {
   public static final String LEADER_AVERAGE_INCREMENT = "leaderAverageIncrement";
   public static final String LEADER_INCREMENT_RANGE = "leaderIncrementRange";
   
+  public static final String DEEDS_DISPLAYED_LIMIT = "deedsDisplayedLimit";
+
   private Properties props;
 
   private static final Logger logger = LogManager.getLogger(Configuration.class);
