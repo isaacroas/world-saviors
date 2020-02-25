@@ -4,6 +4,7 @@ import { SseService } from '../services/sse.service';
 import { SseMessage } from '../domain/sse-message.domain';
 import { Observable } from 'rxjs';
 import { Deed } from '../domain/deed.domain';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +27,9 @@ export class HomeComponent implements OnInit {
   }
 
   putDeed() {
-    this.response$ = this.deedsService.putDeed(this.newDeed);
+    this.response$ = this.deedsService.putDeed(this.newDeed).pipe(
+      tap(() => this.newDeed = new Deed())
+    );
     this.deeds$ = this.deedsService.getDeeds();
   }
 

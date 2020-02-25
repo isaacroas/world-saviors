@@ -1,23 +1,100 @@
-<br>
-Followers: {{ (sseMessage$ | async)?.influencerFollowers }}
-<br>
-UFO Sightings: {{ (sseMessage$ | async)?.ufoSightings }}
-<br>
-Supporters: {{ (sseMessage$ | async)?.leaderSupporters }}
-<br>
-<br>
-<br>
-Enter Deed:
-<input type="text" [(ngModel)]="newDeed.text">
-<button (click)="putDeed()">Send Deed</button>
-<div *ngIf="response$ | async as res">
-  <p>Thanks for doing good deeds!</p>
-  <p>World Saviors API sent back {{ res.text }}</p>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4" style="padding-top: 1rem;">
+  <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 </div>
-<br>
-<br>
-<table>
-  <tr *ngFor="let deed of (sseMessage$ | async)?.deeds">
-    <td>{{ deed.text }}</td>
-  </tr>
-</table>
+
+<!-- Content Row -->
+<div class="row">
+
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-md-4 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Kylie Jenner's Followers</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ (sseMessage$ | async)?.influencerFollowers | number }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-4">
+    <div class="card border-left-success shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">UFO Sightings</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ (sseMessage$ | async)?.ufoSightings | number }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4 mb-4">
+    <div class="card border-left-info shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Donald Trump's Supporters</div>
+            <div class="row no-gutters align-items-center">
+              <div class="col-auto">
+                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ (sseMessage$ | async)?.leaderSupporters | number }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-xl-4 col-lg-5">
+    <div class="card shadow mb-4 h-100">
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">Add a Good Deed</h6>
+      </div>
+      <div class="card-body">
+        <div class="form-group row">
+          <div class="col-sm-12 mb-3 mb-sm-0">
+            <input type="text" [(ngModel)]="newDeed.text" class="form-control form-control-user" placeholder="Rescued a cat from a tree">
+          </div>
+        </div>
+        <button (click)="putDeed()" class="btn btn-primary btn-user btn-block">
+          Send Good Deed
+        </button>
+        <div class="form-group row">
+          <div class="col-lg-12 mb-3 mb-sm-0"></div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-12 mb-3 mb-sm-0">
+            <p *ngIf="response$ | async as res">Thanks for doing good deeds!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xl-8 col-lg-7">
+    <div class="card shadow mb-4 h-100">
+      <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">Good Deeds</h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <tbody>
+              <tr *ngFor="let deed of (sseMessage$ | async)?.deeds">
+                <td>{{ deed.text }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
