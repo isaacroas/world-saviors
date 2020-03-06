@@ -20,6 +20,7 @@ dependencies {
 	testCompile group: 'org.mockito', name: 'mockito-core', version: '3.3.0'
 	testCompile group: 'com.github.tomakehurst', name: 'wiremock', version: '2.26.0', ext: 'pom'
 	testCompile group: 'io.rest-assured', name: 'rest-assured', version: '4.2.0'
+	testCompile group: 'org.jboss.resteasy', name: 'resteasy-jaxrs', version: '3.11.0.Final'
 }
 
 task cucumber() {
@@ -28,13 +29,13 @@ task cucumber() {
         javaexec {
             main = "io.cucumber.core.cli.Main"
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
-            args = ['--plugin', 'pretty', '--glue', 'world-saviors', 'src/test/resources']
+            args = ['--plugin', 'pretty', '--glue', 'com.saviors.cucumber', 'src/test/resources']
         }
     }
 }
 
 configurations {
     cucumberRuntime {
-        extendsFrom testCompile
+        extendsFrom testImplementation
     }
 }

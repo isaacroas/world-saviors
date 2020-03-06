@@ -1,4 +1,4 @@
-package com.saviors.api;
+package com.saviors.cucumber;
 
 import org.junit.BeforeClass;
 import io.restassured.RestAssured;

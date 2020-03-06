@@ -1,4 +1,4 @@
-package com.saviors.api;
+package com.saviors.cucumber;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
