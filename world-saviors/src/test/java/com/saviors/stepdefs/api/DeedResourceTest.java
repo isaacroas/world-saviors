@@ -16,20 +16,20 @@ import org.mockito.MockitoAnnotations;
 import com.saviors.api.DeedResource;
 import com.saviors.config.Configuration;
 import com.saviors.domain.Deed;
-import com.saviors.service.DeedsService;
+import com.saviors.service.DeedService;
 import com.saviors.service.SseService;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class DeedsRestTest extends RestUnitTestBase {
+public class DeedResourceTest extends RestUnitTestBase {
 
   @InjectMocks
   private DeedResource deedResource;
 
   @Mock
-  private DeedsService deedService;
+  private DeedService deedService;
 
   @Mock
   private SseService sseService;
@@ -39,7 +39,7 @@ public class DeedsRestTest extends RestUnitTestBase {
 
   private io.restassured.response.Response restAssuredResponse;
 
-  private javax.ws.rs.core.Response rsResponse;
+  private javax.ws.rs.core.Response jaxResponse;
 
   private String DEEDS_ENDPOINT = "deeds";
 
@@ -77,12 +77,12 @@ public class DeedsRestTest extends RestUnitTestBase {
 
   @When("The list of good deeds is requested")
   public void the_list_of_good_deeds_is_requested() {
-    rsResponse = deedResource.getDeeds();
+    jaxResponse = deedResource.getDeeds();
   }
 
   @Then("The API returns an empty list")
   public void the_api_returns_an_empty_list() {
-    List<Deed> outputList = rsResponse.readEntity(new GenericType<List<Deed>>() {});
+    List<Deed> outputList = jaxResponse.readEntity(new GenericType<List<Deed>>() {});
     assertTrue(outputList.size() == 0);
   }
 
@@ -96,13 +96,13 @@ public class DeedsRestTest extends RestUnitTestBase {
 
   @Then("The API returns a list of good deeds")
   public void the_API_returns_the_list_of_good_deeds() {
-    List<Deed> outputList = rsResponse.readEntity(new GenericType<List<Deed>>() {});
+    List<Deed> outputList = jaxResponse.readEntity(new GenericType<List<Deed>>() {});
     assertTrue(outputList.size() > 0);
   }
 
   @Then("The API returns the good deeds that were added by users")
   public void the_API_returns_the_list_of_good_deeds_that_were_added_by_users() {
-    List<Deed> outputList = rsResponse.readEntity(new GenericType<List<Deed>>() {});
+    List<Deed> outputList = jaxResponse.readEntity(new GenericType<List<Deed>>() {});
     assertTrue(outputList.size() == 2 && outputList.containsAll(inputList));
   }
 

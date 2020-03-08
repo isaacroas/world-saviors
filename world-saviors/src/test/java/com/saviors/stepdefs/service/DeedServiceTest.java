@@ -10,7 +10,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.internal.util.reflection.FieldSetter;
 import com.saviors.config.Configuration;
 import com.saviors.domain.Deed;
-import com.saviors.service.DeedsService;
+import com.saviors.service.DeedService;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -21,7 +21,7 @@ public class DeedServiceTest {
   private static final int LIST_LIMIT = 10;
 
   @InjectMocks
-  private DeedsService deedService;
+  private DeedService deedService;
 
   @Mock
   private Configuration configuration;

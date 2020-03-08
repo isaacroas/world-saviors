@@ -18,9 +18,9 @@ import com.saviors.util.FileReader;
 
 @ApplicationScoped
 @Named
-public class DeedsService {
+public class DeedService {
 
-  private static final Logger logger = LogManager.getLogger(DeedsService.class);
+  private static final Logger logger = LogManager.getLogger(DeedService.class);
   
   @Inject
   private Configuration configuration;

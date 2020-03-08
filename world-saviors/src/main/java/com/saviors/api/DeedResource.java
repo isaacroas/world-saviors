@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response.Status;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.saviors.domain.Deed;
-import com.saviors.service.DeedsService;
+import com.saviors.service.DeedService;
 import com.saviors.service.SseService;
 
 @Path("/api/deeds")
@@ -27,7 +27,7 @@ public class DeedResource {
   private static final Logger logger = LogManager.getLogger(DeedResource.class);
   
   @Inject
-  private DeedsService deedService;
+  private DeedService deedService;
   
   @Inject
   private SseService sseService;
