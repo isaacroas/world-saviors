@@ -1,4 +1,4 @@
-package com.saviors.api;
+package com.saviors.cucumber;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
