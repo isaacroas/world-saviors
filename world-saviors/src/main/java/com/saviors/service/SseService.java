@@ -96,10 +96,14 @@ public class SseService {
 
   public void sendSseMessage() {
     SseMessage sseMessage = generateSseMessage();
-    OutboundSseEvent outboundSseEvent =
-        eventBuilder.data(sseMessage).mediaType(MediaType.APPLICATION_JSON_TYPE).build();
-    logger.info("Broadcasting SSE: {}", sseMessage);
-    sseBroadcaster.broadcast(outboundSseEvent);
+    if (eventBuilder != null) {
+      OutboundSseEvent outboundSseEvent =
+          eventBuilder.data(sseMessage).mediaType(MediaType.APPLICATION_JSON_TYPE).build();
+      logger.info("Broadcasting SSE: {}", sseMessage);
+      if (sseBroadcaster != null) {
+        sseBroadcaster.broadcast(outboundSseEvent);
+      }
+    }
   }
 
 }

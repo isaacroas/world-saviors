@@ -52,7 +52,6 @@ public class DeedsService {
     List<DeedType> deedTypes = new ArrayList<>();
     props.forEach((key, value) -> deedTypes.add(new DeedType(((String)key), ((String)value))));
     return deedTypes;
-  
   }
 
 }

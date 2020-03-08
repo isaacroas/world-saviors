@@ -12,7 +12,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.saviors.service.SseService;
 
-
 @Path("/api/sse")
 public class SseResource {
 
