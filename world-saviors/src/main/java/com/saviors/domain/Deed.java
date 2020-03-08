@@ -1,7 +1,10 @@
 package com.saviors.domain;
 
+import javax.validation.constraints.NotEmpty;
+
 public class Deed {
 
+  @NotEmpty
   private String text;
 
   public Deed() {}
