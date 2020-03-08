@@ -1,9 +1,9 @@
 package com.saviors.stepdefs.service;
 
+import static com.saviors.util.LambdaUtils.repeat;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.util.List;
-import java.util.stream.IntStream;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -66,10 +66,6 @@ public class DeedServiceTest {
     assertTrue(outputList.size() == 2);
     assertEquals("new deed", outputList.get(0).getText());
     assertEquals("old deed", outputList.get(1).getText());
-  }
-
-  private static void repeat(int count, Runnable action) {
-    IntStream.range(0, count).forEach(i -> action.run());
   }
 
 }
