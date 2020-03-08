@@ -46,7 +46,7 @@ public class SseService {
     }
     this.sseBroadcaster.register(sseEventSink);
     OutboundSseEvent outboundSseEvent =
-        eventBuilder.data(new SseMessage())
+        eventBuilder.data(generateSseMessage())
         .mediaType(MediaType.APPLICATION_JSON_TYPE)
         .build();
     sseEventSink.send(outboundSseEvent);
