@@ -38,7 +38,7 @@ public class SseService {
   private LeaderSupporterService leaderSupporterService;
   
   @Inject
-  private DeedsService deedsService;
+  private DeedService deedService;
 
   public void register(Sse sse, SseEventSink sseEventSink) {
     if (this.sse == null) {
@@ -46,7 +46,7 @@ public class SseService {
     }
     this.sseBroadcaster.register(sseEventSink);
     OutboundSseEvent outboundSseEvent =
-        eventBuilder.data(new SseMessage())
+        eventBuilder.data(generateSseMessage())
         .mediaType(MediaType.APPLICATION_JSON_TYPE)
         .build();
     sseEventSink.send(outboundSseEvent);
@@ -90,16 +90,20 @@ public class SseService {
     sseMessage.setInfluencerFollowers(influencerFollowers);
     sseMessage.setLeaderSupporters(leaderSupporters);
     sseMessage.setUfoSightings(ufoSightings);
-    sseMessage.setDeeds(deedsService.getDeeds());
+    sseMessage.setDeeds(deedService.getDeeds());
     return sseMessage;
   }
 
   public void sendSseMessage() {
     SseMessage sseMessage = generateSseMessage();
-    OutboundSseEvent outboundSseEvent =
-        eventBuilder.data(sseMessage).mediaType(MediaType.APPLICATION_JSON_TYPE).build();
-    logger.info("Broadcasting SSE: {}", sseMessage);
-    sseBroadcaster.broadcast(outboundSseEvent);
+    if (eventBuilder != null) {
+      OutboundSseEvent outboundSseEvent =
+          eventBuilder.data(sseMessage).mediaType(MediaType.APPLICATION_JSON_TYPE).build();
+      logger.info("Broadcasting SSE: {}", sseMessage);
+      if (sseBroadcaster != null) {
+        sseBroadcaster.broadcast(outboundSseEvent);
+      }
+    }
   }
 
 }

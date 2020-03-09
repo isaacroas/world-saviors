@@ -41,4 +41,10 @@ public class SseMessage {
     this.deeds = deeds;
   }
 
+  @Override
+  public String toString() {
+    return "SseMessage [influencerFollowers=" + influencerFollowers + ", ufoSightings="
+        + ufoSightings + ", leaderSupporters=" + leaderSupporters + ", deeds=" + deeds + "]";
+  }
+
 }

@@ -1,13 +1,15 @@
-import { DeedType } from './../domain/deed-type.domain';
+import { DeedType } from '../domain/deed-type.domain';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Deed as Deed } from '../domain/deed.domain';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DeedsService {
-  private endpoint = 'http://localhost:8080/world-saviors/api/deeds';
+export class DeedService {
+
+  private readonly endpoint = `${environment.baseUrl}deeds`;
   private readonly httpJsonOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -29,7 +31,7 @@ export class DeedsService {
   }
 
   getDeedTypes() {
-    return this.http.get<Array<DeedType>>(this.endpoint + '/types');
+    return this.http.get<Array<DeedType>>(`${this.endpoint}/types`);
   }
 
 }

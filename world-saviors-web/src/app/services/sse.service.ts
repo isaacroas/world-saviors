@@ -1,12 +1,14 @@
 import { SseMessage } from './../domain/sse-message.domain';
 import { Injectable, NgZone } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SseService {
-  private readonly endpoint = 'http://localhost:8080/world-saviors/api/sse';
+
+  private readonly endpoint = `${environment.baseUrl}sse`;
 
   constructor(private zone: NgZone) { }
 

@@ -18,9 +18,9 @@ import com.saviors.util.FileReader;
 
 @ApplicationScoped
 @Named
-public class DeedsService {
+public class DeedService {
 
-  private static final Logger logger = LogManager.getLogger(DeedsService.class);
+  private static final Logger logger = LogManager.getLogger(DeedService.class);
   
   @Inject
   private Configuration configuration;
@@ -52,7 +52,6 @@ public class DeedsService {
     List<DeedType> deedTypes = new ArrayList<>();
     props.forEach((key, value) -> deedTypes.add(new DeedType(((String)key), ((String)value))));
     return deedTypes;
-  
   }
 
 }
