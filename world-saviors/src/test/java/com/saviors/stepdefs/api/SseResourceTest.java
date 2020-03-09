@@ -45,7 +45,7 @@ public class SseResourceTest extends RestUnitTestBase {
 
   @After
   public void closeSseClients() {
-    logger.debug("Close SSE clients");
+    logger.debug("Close SSE clients asynchronously");
     
     if (sseClient != null) {
       sseClient.closeFeed();
@@ -59,8 +59,6 @@ public class SseResourceTest extends RestUnitTestBase {
         thread.start();
       });
     }
-
-    logger.debug("SSE clients closed");
   }
 
   @When("API receives a GET request to subscribe a consumer to SSE messages")

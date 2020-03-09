@@ -56,11 +56,6 @@ public class DeedServiceTest {
     deedService.addDeed(new Deed("new deed"));
   }
 
-  @When("Good deeds is requested")
-  public void good_deeds_is_requested() {
-    outputList = deedService.getDeeds();
-  }
-
   @Then("Good deeds are returned in reverse order")
   public void good_deeds_are_returned_in_reverse_order() {
     assertTrue(outputList.size() == 2);

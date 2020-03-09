@@ -1,6 +1,7 @@
 Feature: Getting good deeds
   Users should be able to obtain a list of recent good deeds submitted users.
 
+  @integration
   Scenario: Users request the list of good deeds
     When API receives GET request
     Then API should return a list of deeds
@@ -28,5 +29,5 @@ Feature: Getting good deeds
     
   Scenario: The list of good deeds should be returned in reverse order starting from most recent one
     Given Some good deeds have been added
-    When Good deeds is requested
+    When Good deeds are requested
     Then Good deeds are returned in reverse order

@@ -1,15 +1,18 @@
 Feature: Add a good deed
   Users should be able to submit a good deed.
 
+  @integration
   Scenario: User adds a good deed
     When API receives a PUT request containing a good deed
     Then API should return the saved good deed
     And HTTP Status Code should be 201
 
+  @integration
   Scenario: API receives empty PUT request
     When API receives an empty PUT request
     Then HTTP Status Code should be 400
 
+  @integration
   Scenario: API receives invalid PUT request
     When API receives an invalid PUT request
     Then HTTP Status Code should be 400
