@@ -20,17 +20,17 @@ public class UfoSightingService extends AbstractDataGeneratorService {
 
   @Override
   protected Long getInitialCount() {
-    return this.configuration.getLong(Configuration.UFO_INTIAL_COUNT);
+    return this.configuration.getLong(Configuration.UFO_INITIAL_COUNT);
   }
 
   @Override
   protected Integer getInitialAverageIncrement() {
-    return this.configuration.getInt(Configuration.UFO_INTIAL_AVERAGE_INCREMENT);
+    return this.configuration.getInt(Configuration.UFO_INITIAL_AVERAGE_INCREMENT);
   }
 
   @Override
   protected Integer getInitialIncrementRange() {
-    return this.configuration.getInt(Configuration.UFO_INTIAL_INCREMENT_RANGE);
+    return this.configuration.getInt(Configuration.UFO_INITIAL_INCREMENT_RANGE);
   }
 
   @Override

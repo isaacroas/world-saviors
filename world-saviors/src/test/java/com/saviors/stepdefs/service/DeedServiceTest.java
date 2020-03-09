@@ -5,10 +5,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.util.List;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.internal.util.reflection.FieldSetter;
-import com.saviors.config.Configuration;
 import com.saviors.domain.Deed;
 import com.saviors.service.DeedService;
 import io.cucumber.java.Before;
@@ -22,9 +20,6 @@ public class DeedServiceTest {
 
   @InjectMocks
   private DeedService deedService;
-
-  @Mock
-  private Configuration configuration;
 
   private List<Deed> outputList;
 
@@ -54,11 +49,6 @@ public class DeedServiceTest {
   public void some_good_deeds_have_been_added() {
     deedService.addDeed(new Deed("old deed"));
     deedService.addDeed(new Deed("new deed"));
-  }
-
-  @When("Good deeds is requested")
-  public void good_deeds_is_requested() {
-    outputList = deedService.getDeeds();
   }
 
   @Then("Good deeds are returned in reverse order")

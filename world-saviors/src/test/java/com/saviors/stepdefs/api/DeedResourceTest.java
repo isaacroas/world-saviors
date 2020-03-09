@@ -14,7 +14,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import com.saviors.api.DeedResource;
-import com.saviors.config.Configuration;
 import com.saviors.domain.Deed;
 import com.saviors.service.DeedService;
 import com.saviors.service.SseService;
@@ -33,9 +32,6 @@ public class DeedResourceTest extends RestUnitTestBase {
 
   @Mock
   private SseService sseService;
-
-  @Mock
-  private Configuration configuration;
 
   private io.restassured.response.Response restAssuredResponse;
 

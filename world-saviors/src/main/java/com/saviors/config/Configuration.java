@@ -1,6 +1,5 @@
 package com.saviors.config;
 
-import java.io.InputStream;
 import java.util.Properties;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
@@ -17,22 +16,21 @@ public class Configuration {
   public static final String SSE_SCHEDULER_PERIOD = "sseSchedulerPeriod";
   public static final String INFLUENCER_URL = "influencerUrl";
 
-  public static final String INFLUENCER_INTIAL_FOLLOWERS = "influencerInitialFollowers";
-  public static final String INFLUENCER_INTIAL_AVERAGE_INCREMENT =
-      "influencerInitialAverageIncrement";
-  public static final String INFLUENCER_INTIAL_INCREMENT_RANGE = "influencerInitialIncrementRange";
+  public static final String INFLUENCER_INITIAL_FOLLOWERS = "influencerInitialFollowers";
+  public static final String INFLUENCER_INITIAL_AVERAGE_INCREMENT = "influencerInitialAverageIncrement";
+  public static final String INFLUENCER_INITIAL_INCREMENT_RANGE = "influencerInitialIncrementRange";
   public static final String INFLUENCER_AVERAGE_INCREMENT = "influencerAverageIncrement";
   public static final String INFLUENCER_INCREMENT_RANGE = "influencerIncrementRange";
 
-  public static final String UFO_INTIAL_COUNT = "ufoInitialCount";
-  public static final String UFO_INTIAL_AVERAGE_INCREMENT = "ufoInitialAverageIncrement";
-  public static final String UFO_INTIAL_INCREMENT_RANGE = "ufoInitialIncrementRange";
+  public static final String UFO_INITIAL_COUNT = "ufoInitialCount";
+  public static final String UFO_INITIAL_AVERAGE_INCREMENT = "ufoInitialAverageIncrement";
+  public static final String UFO_INITIAL_INCREMENT_RANGE = "ufoInitialIncrementRange";
   public static final String UFO_AVERAGE_INCREMENT = "ufoAverageIncrement";
   public static final String UFO_INCREMENT_RANGE = "ufoIncrementRange";
 
-  public static final String LEADER_INTIAL_COUNT = "leaderInitialCount";
-  public static final String LEADER_INTIAL_AVERAGE_INCREMENT = "leaderInitialAverageIncrement";
-  public static final String LEADER_INTIAL_INCREMENT_RANGE = "leaderInitialIncrementRange";
+  public static final String LEADER_INITIAL_COUNT = "leaderInitialCount";
+  public static final String LEADER_INITIAL_AVERAGE_INCREMENT = "leaderInitialAverageIncrement";
+  public static final String LEADER_INITIAL_INCREMENT_RANGE = "leaderInitialIncrementRange";
   public static final String LEADER_AVERAGE_INCREMENT = "leaderAverageIncrement";
   public static final String LEADER_INCREMENT_RANGE = "leaderIncrementRange";
 
