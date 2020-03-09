@@ -5,10 +5,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import java.util.List;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.internal.util.reflection.FieldSetter;
-import com.saviors.config.Configuration;
 import com.saviors.domain.Deed;
 import com.saviors.service.DeedService;
 import io.cucumber.java.Before;
@@ -22,9 +20,6 @@ public class DeedServiceTest {
 
   @InjectMocks
   private DeedService deedService;
-
-  @Mock
-  private Configuration configuration;
 
   private List<Deed> outputList;
 
