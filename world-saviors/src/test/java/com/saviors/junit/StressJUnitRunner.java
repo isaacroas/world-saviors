@@ -6,6 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "classpath:features", glue = "classpath:com/saviors/stepdefs",
-    tags = {"not @stress"})
-public class JUnitRunner {
+    tags = {"@stress"})
+public class StressJUnitRunner {
 }
